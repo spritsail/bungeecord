@@ -35,4 +35,9 @@ RUN apk --no-cache add openjdk8-jre nss
 WORKDIR /config
 VOLUME /config
 
-CMD [ "java", "-jar", "/bungeecord.jar" ]
+# Default as per https://github.com/SpigotMC/BungeeCord/blob/730715e68b7a6fe4b64e3b7a9b3b166d35f30abe/log/src/main/java/net/md_5/bungee/log/ConciseFormatter.java#L13
+ENV DATE_FORMAT=HH:mm:ss
+
+CMD exec java \
+        -Dnet.md_5.bungee.log-date-format=${DATE_FORMAT} \
+        -jar /bungeecord.jar
