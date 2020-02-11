@@ -22,33 +22,18 @@ steps:
     tags:
     - latest
     - "%label org.label-schema.version"
-  environment:
-    DOCKER_PASSWORD:
-      from_secret: docker_password
-    DOCKER_USERNAME:
+    username:
       from_secret: docker_username
+    password:
+      from_secret: docker_password
   when:
     branch:
     - master
     event:
     - push
-    - tag
-
-- name: notify
-  pull: always
-  image: spritsail/notify
-  environment:
-    NOTIFY_TOKEN:
-      from_secret: notify_token
-    WEBHOOK_URL:
-      from_secret: webhook_url
-  when:
-    status:
-    - success
-    - failure
 
 ---
 kind: signature
-hmac: bc728abb5f47cc644f179a8fbd3a33c33db00cf2aa3114c151c0f744ff5378ea
+hmac: d9da1ad2a8e775fefed4001ab30f21d34dba447ee96653a93d8d49998eed75ec
 
 ...
