@@ -10,22 +10,16 @@ steps:
 - name: build
   pull: always
   image: spritsail/docker-build
-  settings:
-    repo: bungeecord-dev
 
 - name: publish
   pull: always
   image: spritsail/docker-publish
   settings:
-    from: bungeecord-dev
     repo: spritsail/bungeecord
     tags:
     - latest
     - "%label org.label-schema.version"
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
+    login: {from_secret: docker_login}
   when:
     branch:
     - master
@@ -34,6 +28,6 @@ steps:
 
 ---
 kind: signature
-hmac: d9da1ad2a8e775fefed4001ab30f21d34dba447ee96653a93d8d49998eed75ec
+hmac: 7d97d32242309248019aeb4c6314b2f1d22cfe21ac96fd658edd32cc8927320f
 
 ...
