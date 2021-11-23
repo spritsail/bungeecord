@@ -19,7 +19,7 @@ RUN apk --no-cache add jq maven openjdk17 nss git && \
     \
     # Apply custom patches here
     git fetch origin pull/2615/head && git cherry-pick FETCH_HEAD && \
-    echo H4sIAAAAAAACA63OT2uDMBgG8Hs+xXt3MUo1sbiNjtaBsLWi3a4h/iXDxmLSsY8/lUIPG9s6zCF5E55feEpZ14BxIw0Icuw70xVdS3RfkIOQiryJd0FUZcih5D7JT6qpqkssOQ/rTmkjlNH2mId8po+QVGX1AUXpLalf1ra9zOugyKkPruNQz0MY49laI8uy5mu+WgFe0BsG1rQP1+Mpb2UBRSu0hi8KwbjOmeHJDEctlWhBKgPP8TZapw+Pe+5yl3IP7oD5XngFYhPxryLcnRANEf4zCgbiOmzBPDdgLETW/2TwQ9Enqc1tZnqpmnvIXpJkl+6jDX+N0izebbPfZKxM1VT9N5THm1GjTxm/rCUTAwAA | base64 -d | gunzip | git apply && \
+    echo H4sIAAAAAAACA63OT0+DMBgG8Hs/xXvHUpA/3YKamQ0TEt0ITK9NgUJqWFloZ/z4AlniQaPO0EP7tnl+zVPJugaMG2mAk2Pfma7sWqL7khy4VOSVv3GihCGHigWkOKlGiM9Yeh7WndKGK6PtMQ/FTB8hqSrxDmXlL8Ogqm279sKSXosaXMcJfR9hjGdrjSzLmq/5agXYC68oWNM+XI+nopUllC3XGr4oBOM6Z4YnMxy1VLwFqQw8Jdt4nd0/7JnL3JD5cAs08KMLEJ1IcBFh7oTCCOE/o8VAXId61HcXlEbI+p9c/lD0UWpzk5tequYO8uc03WX7eMNe4ixPdtv8N5koIxrRf0NZshk1+gDG6fHvEwMAAA== | base64 -d | gunzip | git apply && \
     \
     mvn package -Dbuild.number=${BUNGEECORD_BUILD} -U
 
