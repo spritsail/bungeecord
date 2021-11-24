@@ -1,6 +1,6 @@
 ARG BUNGEECORD_BUILD=1614
 
-FROM spritsail/alpine:edge AS compile
+FROM spritsail/alpine:3.15 AS compile
 
 ARG BUNGEECORD_BUILD
 
@@ -22,7 +22,7 @@ RUN apk --no-cache add jq maven openjdk17 nss git && \
     \
     mvn package -Dbuild.number=${BUNGEECORD_BUILD} -U
 
-FROM spritsail/alpine:edge
+FROM spritsail/alpine:3.15
 
 ARG BUNGEECORD_BUILD
 
