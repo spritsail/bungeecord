@@ -1,4 +1,4 @@
-ARG BUNGEECORD_BUILD=1613
+ARG BUNGEECORD_BUILD=1614
 
 FROM spritsail/alpine:edge AS compile
 
@@ -19,7 +19,6 @@ RUN apk --no-cache add jq maven openjdk17 nss git && \
     \
     # Apply custom patches here
     git fetch origin pull/2615/head && git cherry-pick FETCH_HEAD && \
-    echo H4sIAAAAAAACA63OT0+DMBgG8Hs/xXvHUpA/3YKamQ0TEt0ITK9NgUJqWFloZ/z4AlniQaPO0EP7tnl+zVPJugaMG2mAk2Pfma7sWqL7khy4VOSVv3GihCGHigWkOKlGiM9Yeh7WndKGK6PtMQ/FTB8hqSrxDmXlL8Ogqm279sKSXosaXMcJfR9hjGdrjSzLmq/5agXYC68oWNM+XI+nopUllC3XGr4oBOM6Z4YnMxy1VLwFqQw8Jdt4nd0/7JnL3JD5cAs08KMLEJ1IcBFh7oTCCOE/o8VAXId61HcXlEbI+p9c/lD0UWpzk5tequYO8uc03WX7eMNe4ixPdtv8N5koIxrRf0NZshk1+gDG6fHvEwMAAA== | base64 -d | gunzip | git apply && \
     \
     mvn package -Dbuild.number=${BUNGEECORD_BUILD} -U
 
