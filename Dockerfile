@@ -1,4 +1,4 @@
-ARG BUNGEECORD_BUILD=1616
+ARG BUNGEECORD_BUILD=1617
 
 FROM spritsail/alpine:3.15 AS compile
 
@@ -47,6 +47,7 @@ ENV SNAPSHOT=true \
     FILE_LOG_LEVEL=INFO
 
 CMD exec java \
+        -Dlog4j2.formatMsgNoLookups=true \
         -Dnet.md_5.bungee.protocol.snapshot=${SNAPSHOT} \
         -Dnet.md_5.bungee.log-date-format=${DATE_FORMAT} \
         -Dnet.md_5.bungee.file-log-level=${CONSOLE_LOG_LEVEL} \
