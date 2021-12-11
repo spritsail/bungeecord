@@ -1,4 +1,4 @@
-ARG BUNGEECORD_BUILD=1617
+ARG BUNGEECORD_BUILD=1619
 
 FROM spritsail/alpine:3.15 AS compile
 
@@ -35,7 +35,7 @@ LABEL maintainer="Spritsail <bungeecord@spritsail.io>" \
       io.spritsail.version.bungeecord=${BUNGEECORD_BUILD}
 
 COPY --from=compile /build/bootstrap/target/BungeeCord.jar /bungeecord.jar
-RUN apk --no-cache add openjdk17-jre nss
+RUN apk --no-cache add openjdk17-jre-headless nss
 
 WORKDIR /config
 VOLUME /config
